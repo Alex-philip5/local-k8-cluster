@@ -1,0 +1,16 @@
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: InitConfiguration
+localAPIEndpoint:
+  advertiseAddress: "10.0.0.10"
+  bindPort: 6443
+nodeRegistration:
+  name: "master-node"
+---
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: ClusterConfiguration
+apiServer:
+  certSANs:
+  - "10.0.0.10"
+networking:
+  podSubnet: "172.16.1.0/16"
+
