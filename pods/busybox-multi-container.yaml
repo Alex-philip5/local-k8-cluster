@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-multi-container
+  creationTimestamp: null
+  labels:
+    run: busybox-multi-container
+spec:
+  containers:
+    - name: container-1
+      image: busybox
+      command: ["/bin/sh"]
+      args: ["-c", "ls; sleep 3600;"]
+      resources: {}
+
+    - name: container-2
+      image: busybox
+      command: ["/bin/sh"]
+      args: ["-c", "echo This is techiescamp; sleep 1000;"]
+      resources: {}
+
+    - name: container-3
+      image: busybox
+      command: ["/bin/sh"]
+      args: ["-c", "date; sleep 3600;"]
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

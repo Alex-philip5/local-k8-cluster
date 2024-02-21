@@ -13,4 +13,5 @@ apiServer:
   - "10.0.0.10"
 networking:
   podSubnet: "172.16.1.0/16"
+clusterName: "master-cluster"
 

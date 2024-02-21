@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scenario
+  labels:
+    type: test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: test
+  template:
+    metadata:
+      labels:
+        type: test
+    spec:
+      containers:
+      - name: busybox-container
+        image: busybox
+        command:
+        - /bin/sh
+        - "-c"
+        - echo This is techiescamp && sleep 3600

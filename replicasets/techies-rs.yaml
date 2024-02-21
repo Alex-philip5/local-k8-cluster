@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: techiescamp-rs
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: alpine
+
+  template:
+    metadata:
+      labels:
+        app: alpine
+    spec:
+      containers:
+        - name: techiescamp
+          image: alpine:3.19.0
+          command: ["sh", "-c", "tail -f /dev/null"]
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+              
